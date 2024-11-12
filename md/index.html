@@ -1,0 +1,819 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Михаил Миронов">
+      
+      
+      
+        <link rel="prev" href="../mkdocs/">
+      
+      
+        <link rel="next" href="../git/">
+      
+      
+      <link rel="icon" href="../images/md/2-example.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Синтаксис Markdown - MkDocs 101: краткий курс по инструментам docs-as-code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#markdown" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="MkDocs 101: краткий курс по инструментам docs-as-code" class="md-header__button md-logo" aria-label="MkDocs 101: краткий курс по инструментам docs-as-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MkDocs 101: краткий курс по инструментам docs-as-code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Синтаксис Markdown
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MkDocs 101: краткий курс по инструментам docs-as-code" class="md-nav__button md-logo" aria-label="MkDocs 101: краткий курс по инструментам docs-as-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MkDocs 101: краткий курс по инструментам docs-as-code
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Кратко о Docs-as-Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Синтаксис Markdown
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Синтаксис Markdown
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Заголовки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Форматирование текста
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Списки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ссылки
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ссылки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внутренняя ссылка
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внешняя ссылка
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Изображения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Изображения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Локальное изображение
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внешнее изображение
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Код
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Примечания и цитаты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разделитель (горизонтальная линия)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Таблицы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git, GitHub и GitHub Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Заголовки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Форматирование текста
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Списки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ссылки
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ссылки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внутренняя ссылка
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внешняя ссылка
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Изображения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Изображения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Локальное изображение
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внешнее изображение
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Код
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Примечания и цитаты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разделитель (горизонтальная линия)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Таблицы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="markdown">Синтаксис Markdown</h1>
+<p>Markdown (MD) — легковесный язык разметки, который легко преобразуется в HTML. Простой синтаксис языка делает его читабельным в исходном виде, поэтому его часто используют для документации.</p>
+<p>Помимо MkDocs MD используется ещё в Jekyll, Hugo, Gatsby и прочих генераторах статических сайтов. Также на Sphinx существуют расширения, которые позволяют использовать MD вместо reStructuredText (RST).</p>
+<p>В документе описаны основы синтаксиса, подбронее в <a href="https://www.markdownguide.org/extended-syntax/">полном гайде</a>.</p>
+<h2 id="_1">Заголовки</h2>
+<p>Для заголовков используется символ <code>#</code>. Чем глубже вложенность, тем больше символов (6 — максимум).</p>
+<p><a class="glightbox" href="../images/md/1-headers.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="right" alt="" src="../images/md/1-headers.png" /></a></p>
+<pre><code class="language-markdown"># Заголовок 1
+## Заголовок 2
+### Заголовок 3
+</code></pre>
+<p><br></p>
+<h2 id="_2">Форматирование текста</h2>
+<ol>
+<li><strong>Жирный</strong>: <code>**текст**</code> or <code>__текст__</code>.</li>
+<li><em>Курсив</em>: <code>*текст*</code> or <code>_текст_</code>.</li>
+<li>~~Зачеркнутый~~: <code>~~текст~~</code>.</li>
+</ol>
+<pre><code class="language-markdown">**Жирный**
+*Курсив*
+~~Зачеркнутый~~
+</code></pre>
+<blockquote>
+<p><strong>Примечание:</strong> синтаксис зачеркнутого текста верный, но в используемой теме MkDocs он не <a href="https://github.com/mkdocs/mkdocs/issues/868">поддерживается</a>. В других условиях, <em>скорее всего</em>, будет работать.</p>
+</blockquote>
+<h2 id="_3">Списки</h2>
+<ol>
+<li><strong>Маркированный список</strong>: можно использовать <code>-</code> или <code>*</code>.</li>
+<li><strong>Нумерованный список</strong>: можно использовать <code>1.</code> <code>2.</code> <code>3.</code> и т.д. или просто <code>1.</code> <code>1.</code> <code>1.</code> — нумерация проставится автоматически.</li>
+</ol>
+<blockquote>
+<p><strong>Примечание:</strong> Второй вариант (<code>1.</code> <code>1.</code> <code>1.</code>) может быть удобнее, т. к. позволяет не менять всю нумерацию при добавлении элемента в середину списка. Также только этот способ позволяет создавать многоуровневые списки.</p>
+</blockquote>
+<pre><code class="language-markdown">- элемент 1:
+    - элемент 1.1;
+    - элемент 1.1;
+- элемент 2.
+---
+1. Первый.
+    1. Первый А.
+    1. Первый B.
+2. Второй.
+---
+1. Первый.
+1. Второй.
+1. Третий.
+</code></pre>
+<ul>
+<li>элемент 1:<ul>
+<li>элемент 1.1;</li>
+<li>элемент 1.1;</li>
+</ul>
+</li>
+<li>элемент 2.</li>
+</ul>
+<hr />
+<ol>
+<li>Первый.<ol>
+<li>Первый А.</li>
+<li>Первый B.</li>
+</ol>
+</li>
+<li>Второй.</li>
+</ol>
+<hr />
+<ol>
+<li>Первый.</li>
+<li>Второй.</li>
+<li>Третий.</li>
+</ol>
+<blockquote>
+<p><strong>Примечание:</strong> между списками должно быть разделение другими элементами или текстом, иначе они будут сливаться.</p>
+</blockquote>
+<h2 id="_4">Ссылки</h2>
+<p>Конструкция: <code>[Текст ссылки](URL)</code>.</p>
+<h3 id="_5">Внутренняя ссылка</h3>
+<pre><code class="language-markdown">[Кратко о Docs-as-Code](index.md).
+</code></pre>
+<p><a href="../">Кратко о Docs-as-Code</a>.</p>
+<blockquote>
+<p><strong>Примечание:</strong> внутренняя ссылка на главную страницу — относительный путь на файл <code>index.md</code>.</p>
+</blockquote>
+<h3 id="_6">Внешняя ссылка</h3>
+<pre><code class="language-markdown">[Текст ссылки](http://example.com).
+</code></pre>
+<p><a href="http://example.com">Текст ссылки</a>.</p>
+<h2 id="_7">Изображения</h2>
+<p>Конструкция: <code>![Alt-текст](Ссылка на изображение)</code>.</p>
+<h3 id="_8">Локальное изображение</h3>
+<pre><code class="language-markdown">![Author's Face](./images/md/2-example.png)
+</code></pre>
+<p><a class="glightbox" href="../images/md/2-example.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Author's Face" src="../images/md/2-example.png" /></a></p>
+<h3 id="_9">Внешнее изображение</h3>
+<pre><code class="language-markdown">![Markdown Logo](https://markdown-here.com/img/icon256.png)
+</code></pre>
+<p><a class="glightbox" href="https://markdown-here.com/img/icon256.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Markdown Logo" src="https://markdown-here.com/img/icon256.png" /></a></p>
+<h2 id="_10">Код</h2>
+<ol>
+<li><strong>Код в тексте</strong>: нужно заключать слова в обратные апострофы <code>`code`</code>.</li>
+<li><strong>Блоки кода</strong>: абзац заключается в тройные апострофы.</li>
+</ol>
+<pre><code class="language-markdown">
+    ```python
+    def hello():
+    print(&quot;Hello, Markdown!&quot;)
+    ```
+
+</code></pre>
+<pre><code class="language-python">def hello():
+print(&quot;Hello, Markdown!&quot;)
+</code></pre>
+<h2 id="_11">Примечания и цитаты</h2>
+<p>Конструкция: <code>&gt;</code>.</p>
+<pre><code class="language-markdown">&gt; Это цитата.
+</code></pre>
+<blockquote>
+<p>Это цитата.</p>
+</blockquote>
+<p>Любое форматирование текста будет работать в цитате, поэтому с помощью этой конструкции можно оформлять примечания:</p>
+<pre><code class="language-markdown">&gt; **Примечание:** это примечание.
+</code></pre>
+<blockquote>
+<p><strong>Примечание:</strong> это примечание.</p>
+</blockquote>
+<h2 id="_12">Разделитель (горизонтальная линия)</h2>
+<p>Конструкция: <code>---</code> или <code>***</code>.</p>
+<pre><code class="language-markdown">---
+</code></pre>
+<hr />
+<h2 id="_13">Таблицы</h2>
+<p>Конструкция:</p>
+<pre><code class="language-markdown">| Заголовок 1 | Заголовок 2 |
+| --- | --- |
+| Строка 1    | Данные     |
+| Строка 2    | Данные     |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Заголовок 1</th>
+<th>Заголовок 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Строка 1</td>
+<td>Данные</td>
+</tr>
+<tr>
+<td>Строка 2</td>
+<td>Данные</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Примечание:</strong> таблицы — самое слабое место MD. Для создания больших таблиц советую использовать <a href="https://www.tablesgenerator.com/markdown_tables">генератор таблиц</a>.</p>
+</blockquote>
+<h2 id="html">HTML</h2>
+<p>В MD без каких-то дополнительных конструкций вставляется работающий HTML. Если какие-то элементы вёрстки выглядят плохо в чистом MD — можно использовать <a href="https://www.w3schools.com/html/">синтаксис HTML</a>.</p>
+<p>Например, можно использовать <code>&lt;br&gt;</code> в тексте для переноса на другую строчку. Особенно полезно бывает в таблицах.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
