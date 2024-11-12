@@ -1,0 +1,21 @@
+site_name: 'MkDocs 101: краткий курс по инструментам docs-as-code'
+site_author: Михаил Миронов
+
+theme: 
+  name: material
+  language: ru
+  palette:
+    primary: blue
+  favicon: images/md/2-example.png
+
+markdown_extensions:
+  - attr_list
+
+plugins:
+  - glightbox
+
+nav:
+  - 'index.md'
+  - 'mkdocs.md'
+  - 'md.md'
+  - 'git.md'
