@@ -11,8 +11,6 @@
       
       
       
-        <link rel="prev" href="..">
-      
       
         <link rel="next" href="../md/">
       
@@ -47,6 +45,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="MkDocs 101: краткий курс по инструментам docs-as-code" class="md-header__button md-logo" aria-label="MkDocs 101: краткий курс по инструментам docs-as-code" data-md-component="logo">
       
@@ -132,13 +132,75 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  MkDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../md/" class="md-tabs__link">
+        
+  
+    
+  
+  Синтаксис Markdown
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../git/" class="md-tabs__link">
+        
+  
+    
+  
+  Git, GitHub и GitHub Pages
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -146,14 +208,18 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="MkDocs 101: краткий курс по инструментам docs-as-code" class="md-nav__button md-logo" aria-label="MkDocs 101: краткий курс по инструментам docs-as-code" data-md-component="logo">
       
@@ -165,26 +231,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Кратко о Docs-as-Code
-  </span>
-  
-
-      </a>
-    </li>
-  
-
     
       
       
@@ -327,6 +373,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -403,12 +451,12 @@
     Подробнее об установке <a href="#mkdocs_1">описано ниже</a>.</li>
 </ol>
 <p>При установке Python не забудьте проставить галочку "Add Python to PATH":</p>
-<p><a class="glightbox" href="../images/mkdocs/1-python-path.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="right" alt="" src="../images/mkdocs/1-python-path.png" /></a></p>
 <p>Если пропустили, <a href="https://realpython.com/add-python-to-path/">на этом сайте</a> есть подробная инструкция, как можно добавить Python в PATH после установки.</p>
-<p>В крайнем случае: переустановите Python и поставьте галочку.
-<br>
-<br>
-<br></p>
+<p>В крайнем случае: переустановите Python и поставьте галочку.</p>
+<details class="info">
+<summary>Скриншот</summary>
+<p><a class="glightbox" href="../images/mkdocs/1-python-path.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/1-python-path.png" /></a></p>
+</details>
 <h2 id="mkdocs_1">Установка Mkdocs и создание проекта</h2>
 <p>Большая часть работы будет происходить в терминале (Unix) или в PowerShell (Windows). Примеры будут для PowerShell, но большинство команд актуально и для Unix-систем.</p>
 <table>
@@ -420,24 +468,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Ввести в командной строке:<br><code>pip install mkdocs</code><br><br>Если <code>pip</code> не работает — может помочь перезагрузка компьютера.</td>
-<td><a class="glightbox" href="../images/mkdocs/2-mkdocs-install.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/2-mkdocs-install.png" /></a></td>
+<td>Ввести в командной строке:<br><code>pip install mkdocs</code><br><br>Если <code>pip</code> не работает — может помочь перезагрузка компьютера</td>
+<td><a class="glightbox" href="../images/mkdocs/2-mkdocs-install.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/2-mkdocs-install.png" width="800" /></a></td>
 </tr>
 <tr>
 <td>С помощью команды <code>cd</code> перейти в папку, в которой будет создаваться репозиторий сайта.<br><br>В примере папка находится в <code>C:\Users\Arayomi\repo</code>. <br><br>По умолчанию PowerShell открывается в <code>C:\User\Arayomi</code>. Поэтому команда выглядит: <code>cd repo</code></td>
-<td><a class="glightbox" href="../images/mkdocs/3-mkdocs-cd.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/3-mkdocs-cd.png" /></a></td>
+<td><a class="glightbox" href="../images/mkdocs/3-mkdocs-cd.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/3-mkdocs-cd.png" width="800" /></a></td>
 </tr>
 <tr>
 <td>В нужной папке ввести команду: <code>mkdocs new project-name</code>.<br><br>Вместо <code>project-name</code> можно ввести любое имя для будущего проекта.<br>Его можно будет потом изменить.<br><br>Папка с сайтом (репозиторий) будет называться так же, как и проект</td>
-<td><a class="glightbox" href="../images/mkdocs/4-mkdocs-initial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/4-mkdocs-initial.png" /></a></td>
+<td><a class="glightbox" href="../images/mkdocs/4-mkdocs-initial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/4-mkdocs-initial.png" width="800" /></a></td>
 </tr>
 <tr>
 <td>Чтобы открыть проект в VS Code, надо ввести команду:<br><code>code [абсолютный/относительный путь до репозитория]</code>.<br><br>В примере в команде пишется относительный путь:<br><code>code test-project</code></td>
-<td><a class="glightbox" href="../images/mkdocs/5-vscode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/5-vscode.png" /></a></td>
+<td><a class="glightbox" href="../images/mkdocs/5-vscode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/5-vscode.png" width="800" /></a></td>
 </tr>
 <tr>
 <td>VS Code позволяет открыть PowerShell внутри редактора.<br>Для этого надо нажать на "Terminal" → "New Terminal" (или Ctrl+Shift+`).<br>В новом терминале введите команду <code>mkdocs serve</code>.<br>С помощью этой команды вы локально собрали ваш сайт по адресу <code>127.0.0.1:8000</code>.</td>
-<td><a class="glightbox" href="../images/mkdocs/6-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/6-build.png" /></a></td>
+<td><a class="glightbox" href="../images/mkdocs/6-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/6-build.png" width="800" /></a></td>
 </tr>
 </tbody>
 </table>
@@ -454,7 +502,10 @@
 <pre><code class="language-yml">site_name: My Docs
 </code></pre>
 <p>А сам сайт выглядит так:</p>
+<details class="info">
+<summary>Скриншот</summary>
 <p><a class="glightbox" href="../images/mkdocs/8-overview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/mkdocs/8-overview.png" /></a></p>
+</details>
 <p>Это стандартная тема для сайтов сгенерированных с помощью MkDocs. В интернете много разных тем для MkDocs, основные можно посмотреть <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">по ссылке</a>.
 Мне нравится тема <a href="https://squidfunk.github.io/mkdocs-material/"><code>material</code></a> — на этом сайте используется она же. Примеры буду приводить с ней же.</p>
 <blockquote>
@@ -483,7 +534,7 @@
 <table>
 <thead>
 <tr>
-<th>Настройка</th>
+<th><div style="width:8em">Параметр</div></th>
 <th>Описание</th>
 </tr>
 </thead>
@@ -494,11 +545,11 @@
 </tr>
 <tr>
 <td><code>plugins:</code></td>
-<td>После двоеточия записывается список плагинов, которые вы хотите использовать на сайте. Рекомендую использовать <code>glightbox</code> — он позволяет открывать картинки в увеличенном размере на сайте кликом мыши. Без него картинки буду статичны. Плагины необходимо устанавливать через pip</td>
+<td>После двоеточия записывается список плагинов, которые вы хотите использовать на сайте. Рекомендую использовать <code>glightbox</code> — он позволяет открывать картинки в увеличенном размере на сайте кликом мыши.<br>Без него картинки буду статичны. Плагины необходимо устанавливать через pip</td>
 </tr>
 <tr>
 <td><code>nav:</code></td>
-<td>Эта настройка определяет навигацию на всём сайте. Помогает выстроить точный порядок файлов на сайте. Например, на этом сайте я её использовал, чтобы страницы шли не в алфавитном порядке, а в хронологическом. <a href="https://www.mkdocs.org/user-guide/configuration/#nav">Подробнее о настройке</a></td>
+<td>Эта настройка определяет навигацию на всём сайте. Помогает выстроить точный порядок файлов на сайте. Например, на этом сайте я её использовал, чтобы страницы шли не в алфавитном порядке, а в хронологическом. <br><a href="https://www.mkdocs.org/user-guide/configuration/#nav">Подробнее о настройке</a></td>
 </tr>
 </tbody>
 </table>
@@ -509,8 +560,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -548,7 +604,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
