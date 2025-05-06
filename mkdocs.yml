@@ -7,15 +7,26 @@ theme:
   palette:
     primary: blue
   favicon: images/md/2-example.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+
+
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - attr_list
+  - admonition
+  - pymdownx.details
+
 
 plugins:
   - glightbox
 
 nav:
-  - 'index.md'
   - 'mkdocs.md'
   - 'md.md'
   - 'git.md'

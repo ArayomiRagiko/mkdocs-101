@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Git, GitHub и GitHub Pages
 
 ## Первые шаги
